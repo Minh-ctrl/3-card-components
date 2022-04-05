@@ -1,7 +1,4 @@
 <script setup>
-import IconLuxury from "./icons/IconLuxury.vue";
-import IconSUVs from "./icons/IconSUVs.vue";
-import IconSedans from "./icons/IconSedans.vue";
 defineProps({
   title: {
     type: String,

@@ -1,15 +1,22 @@
-<script setup>
-import CarCard from './components/CarCard.vue'
+<script>
+import { ref } from "vue";
+import TestComponent from "./components/TestComponent.vue";
+import Data from "./components/Data";
+export default {
+  name: "App",
+  components: {
+    TestComponent,
+  },
+  setup() {
+    const carsInfo = ref(Data);
+    return { carsInfo };
+  },
+};
 </script>
-
 <template>
-  <main>
-    <div class="container">
-      <CarCard title="SEDANS" sedans="true" class="orange" />
-      <CarCard title="LUXURY" luxury="true" class="cyan" />
-      <CarCard title="SUVS" suv="true" class="dark-cyan" />
-      </div>
-  </main>
+  <div class="container">
+  <TestComponent :cars="carsInfo" />
+  </div>
 </template>
 
 <style>
@@ -17,8 +24,6 @@ import CarCard from './components/CarCard.vue'
 .container {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
-  height: 20rem;
 }
 .orange {
   background-color: hsl(31, 77%, 52%);
